@@ -39,9 +39,3 @@ PRODUCT_MANUFACTURER := asus
 TARGET_VENDOR := asus
 
 PRODUCT_GMS_CLIENTID_BASE := android-asus
-
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="redfin-user 11 RQ2A.210305.006 7119741 release-keys"
-
-# Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
-BUILD_FINGERPRINT := "google/redfin/redfin:11/RQ2A.210305.006/7119741:user/release-keys"

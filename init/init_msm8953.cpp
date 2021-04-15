@@ -104,4 +104,15 @@ void vendor_load_properties()
     property_override("dalvik.vm.heaptargetutilization", heaptargetutilization);
     property_override("dalvik.vm.heapminfree", heapminfree);
     property_override("dalvik.vm.heapmaxfree", heapmaxfree);
+	
+	// fingerprint
+	property_override("ro.build.description", "redfin-user 11 RQ2A.210305.006 7119741 release-keys");
+	property_override_multifp("ro.build.fingerprint", "ro.system.build.fingerprint", "ro.vendor.build.fingerprint", "ro.bootimage.build.fingerprint", "asus/WW_Phone/ASUS_A001D_2:9/PPR1/16.14.1906.239-20190713:user/release-keys");
+	
+	// Magisk Hide
+	property_override("ro.boot.verifiedbootstate", "green");
+	property_override("ro.boot.vbmeta.device_state", "locked");
+	property_override("ro.boot.veritymode", "enforcing");
+	property_override("ro.build.type", "user");
+	property_override("ro.build.tags", "release-keys");
 }
