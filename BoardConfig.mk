@@ -93,17 +93,15 @@ BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
 
 # Camera
-TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
-    /system/vendor/bin/mm-qcamera-daemon=28
 USE_DEVICE_SPECIFIC_CAMERA := true
-BOARD_USES_SNAPDRAGONCAMERA_VERSION := 2
+TARGET_USES_QTI_CAMERA_DEVICE := true
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 TARGET_TS_MAKEUP := true
 
 # Shims
 TARGET_LD_SHIM_LIBS := \
     /vendor/lib/hw/camera.msm8953.so|camera_shims.so
-
+	
 # Cpusets
 ENABLE_CPUSETS := true
 
