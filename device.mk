@@ -263,11 +263,6 @@ PRODUCT_PACKAGES += \
     ims-ext-common \
     ims_ext_common.xml
 	
-# IDC    
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/configs/uinput-fpc.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-fpc.idc \
-	$(LOCAL_PATH)/configs/uinput-goodix.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-fpc.idc
-
 # Keylayout    
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/keylayout/ft5x06_ts.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/ft5x06_ts.kl \
