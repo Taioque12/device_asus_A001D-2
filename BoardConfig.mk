@@ -22,18 +22,17 @@ TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := cortex-a53
-TARGET_CPU_VARIANT_RUNTIME := cortex-a53
 
 TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv8-a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53
-TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a53
-
 
 TARGET_BOARD_PLATFORM := msm8953
+
 TARGET_BOARD_SUFFIX := _64
+
 TARGET_OTA_ASSERT_DEVICE := A001D,ASUS_A001D,ASUS_A001D_1,ASUS_A001D_2
 
 # Broken Rules
@@ -44,7 +43,7 @@ BUILD_BROKEN_VINTF_PRODUCT_COPY_FILES := true
 
 # Kernel
 BOARD_KERNEL_BASE := 0x80000000
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci earlycon=msm_hsl_uart,0x78af000 firmware_class.path=/vendor/firmware_mnt/image loop.max_part=7 androidboot.usbconfigfs=false androidboot.selinux androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci loop.max_part=7 androidboot.selinux androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE :=  2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
@@ -98,13 +97,6 @@ TARGET_USES_QTI_CAMERA_DEVICE := true
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 TARGET_TS_MAKEUP := true
 
-# Shims
-TARGET_LD_SHIM_LIBS := \
-    /vendor/lib/hw/camera.msm8953.so|camera_shims.so
-	
-# Cpusets
-ENABLE_CPUSETS := true
-
 # Config
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
 
@@ -112,15 +104,15 @@ TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
 TARGET_HW_DISK_ENCRYPTION := true
 
 # Display
-BOARD_USES_ADRENO := true
-OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
-TARGET_USES_C2D_COMPOSITION := true
-TARGET_USES_GRALLOC1 := true
-TARGET_USES_ION := true
-TARGET_USES_HWC2 := true
 MAX_VIRTUAL_DISPLAY_DIMENSION := 4096
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
-TARGET_SCREEN_DENSITY := 400
+
+TARGET_USES_ION := true
+TARGET_USES_GRALLOC1 := true
+TARGET_USES_HWC2 := true
+
+OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
+USE_OPENGL_RENDERER := true
 
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
@@ -138,10 +130,6 @@ TARGET_QCOM_NO_FM_FIRMWARE := true
 # GPS
 USE_DEVICE_SPECIFIC_GPS := true
 TARGET_NO_RPC := true
-
-# Init
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_msm8953
-TARGET_RECOVERY_DEVICE_MODULES := libinit_msm8953
 
 # HIDL
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
