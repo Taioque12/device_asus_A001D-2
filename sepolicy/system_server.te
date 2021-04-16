@@ -1,5 +1,5 @@
 # Input devices
-r_dir_file(system_server, vendor_keylayout_file);
+r_dir_file(system_server, keylayout_file);
 
 allow system_server sysfs_rtc:file r_file_perms;
 
