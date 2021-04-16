@@ -1,10 +1,8 @@
-typeattribute system_server system_executes_vendor_violators;
+# vibrator
+allow system_server sysfs_vibrator:file read;
 
-# Input devices
-r_dir_file(system_server, keylayout_file);
+allow system_server proc_last_kmsg:file r_file_perms;
 
-# Fingerprint
-get_prop(system_server, fp_prop);
-
-# Smart charging
-allow system_server sysfs_battery_supply:file { getattr open read write };
+get_prop(system_server, exported_camera_prop)
+get_prop(system_server, userspace_reboot_config_prop);
+get_prop(system_server, userspace_reboot_exported_prop);
