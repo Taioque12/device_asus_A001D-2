@@ -160,7 +160,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.device@1.0 \
     libfui \
     libui_shim \
-    libgui.vendor
+    libgui_vendor \
     
 # Component overrides
 PRODUCT_COPY_FILES += \
