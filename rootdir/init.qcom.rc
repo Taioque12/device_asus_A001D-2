@@ -42,10 +42,6 @@ on init
     write /sys/fs/cgroup/memory/bg/memory.move_charge_at_immigrate 1
     chown root system /sys/fs/cgroup/memory/bg/tasks
     chmod 0660 /sys/fs/cgroup/memory/bg/tasks
-	
-	#Support legacy paths
-	symlink /sdcard /mnt/sdcard
-	symlink /sdcard /storage/sdcard0
 
     # ZRAM setup
     write /proc/sys/vm/page-cluster 0

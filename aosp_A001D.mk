@@ -18,7 +18,7 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit from sakura device
+# Inherit from A001D device
 $(call inherit-product, device/asus/A001D/device.mk)
 
 #PE Props
@@ -35,7 +35,11 @@ PRODUCT_NAME := aosp_A001D
 BOARD_VENDOR := asus
 PRODUCT_BRAND := asus
 PRODUCT_MODEL := ASUS_A001D
-PRODUCT_MANUFACTURER := asus
-TARGET_VENDOR := asus
 
-PRODUCT_GMS_CLIENTID_BASE := android-asus
+# PixelPlusUI Maintainer
+PRODUCT_PROPERTY_OVERRIDES += \
+  ro.ppui.device_name=Max Shot \
+  ro.ppui.version=3.4 \
+  ro.ppui.version_code=A001D \
+  ro.ppui.is_official=true \
+  ro.ppui.maintainer_name=mathpfvr
