@@ -29,21 +29,24 @@ ro.qualcomm.bt.hci_transport=smd
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-camera.hal1.packagelist=com.skype.raider,com.google.android.talk \
-camera.lowpower.record.enable=1 \
-media.camera.ts.monotonic=1 \
-persist.camera.gyro.disable=0 \
-persist.camera.mct.debug=0 \
-persist.camera.iface.logs=0 \
-persist.camera.imglib.logs=0 \
-persist.camera.isp.clock.optmz=0 \
-persist.camera.isp.debug=0 \
-persist.camera.sensor.debug=0 \
-persist.camera.stats.test=5 \
-persist.vendor.camera.display.lmax=1280x720 \
-persist.vendor.camera.display.umax=1920x1080 \
-persist.vendor.qti.telephony.vt_cam_interface=2 \
-vidc.enc.dcvs.extra-buff-count=2
+    camera.disable_zsl_mode=1 \
+    persist.vendor.camera.display.umax=1920x1080 \
+    persist.vendor.camera.display.lmax=1280x720 \
+    camera.mot.startup_probing=0 \
+    persist.camera.debug.logfile=0 \
+    persist.camera.gyro.disable=0 \
+    persist.camera.HAL3.enabled=1 \
+    vidc.enc.dcvs.extra-buff-count=2 \
+    vendor.vidc.enc.disable_bframes=1 \
+    vendor.vidc.disable.split.mode=1 \
+    vendor.vidc.enc.disable.pq=true \
+    vendor.vidc.dec.downscalar_width=1920 \
+    vendor.vidc.dec.downscalar_height=1088 \
+    vidc.dec.disable.split.cpu=1 \
+    video.disable.ubwc=1 \
+    media.camera.ts.monotonic=1 \
+    persist.camera.time.monotonic=1 \
+    persist.camera.eis.enable=1
 
 # Cne
 PRODUCT_PROPERTY_OVERRIDES += \
