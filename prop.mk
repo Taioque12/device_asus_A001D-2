@@ -1,37 +1,24 @@
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
-af.fast_track_multiplier=2 \
-audio.deep_buffer.media=true \
-audio.offload.disable=true \
-audio.offload.min.duration.secs=30 \
-audio.offload.video=true \
-persist.vendor.audio.fluence.speaker=true \
-persist.vendor.audio.fluence.voicecall=true \
-persist.vendor.audio.fluence.voicerec=false \
-ro.config.media_vol_steps=25 \
-ro.config.vc_call_vol_steps=7 \
-persist.vendor.btstack.enable.splita2dp=false \
-ro.vendor.audio.sdk.fluencetype=fluence \
-ro.vendor.audio.sdk.ssr=false \
-vendor.audio.flac.sw.decoder.24bit=true \
-vendor.audio.offload.buffer.size.kb=64 \
-vendor.audio.offload.gapless.enabled=true \
-vendor.audio.offload.multiaac.enable=true \
-vendor.audio.offload.multiple.enabled=false \
-vendor.audio.offload.passthrough=false \
-vendor.audio.offload.track.enable=true \
-vendor.audio.parser.ip.buffer.size=262144 \
-vendor.audio.playback.mch.downsample=true \
-vendor.audio.safx.pbe.enabled=true \
-vendor.audio.tunnel.encode=false \
-vendor.audio.use.sw.alac.decoder=true \
-vendor.audio.use.sw.ape.decoder=true \
-vendor.audio_hal.period_size=192 \
-vendor.voice.conc.fallbackpath=deep-buffer \
-vendor.voice.path.for.pcm.voip=true \
-vendor.voice.playback.conc.disabled=true \
-vendor.voice.record.conc.disabled=false \
-vendor.voice.voip.conc.disabled=true
+    audio.deep_buffer.media=true \
+    vendor.audio.offload.buffer.size.kb=64 \
+    vendor.audio.offload.gapless.enabled=false \
+    vendor.audio.offload.multiple.enabled=false \
+    vendor.audio.offload.pcm.16bit.enable=false \
+    vendor.audio.offload.pcm.24bit.enable=false \
+    audio.offload.track.enable=true \
+    persist.audio.dualmic.config=endfire \
+    af.fast_track_multiplier=1 \
+    audio.offload.disable=false \
+    audio.offload.min.duration.secs=60 \
+    audio.offload.video=false \
+    vendor.audio.playback.mch.downsample=true \
+    vendor.audio_hal.period_size=240 \
+    av.offload.enable=false \
+    av.debug.disable.pers.cache=1 \
+    persist.audio.endcall.delay=250 \
+    qcom.hw.aac.encoder=false \
+    vendor.audio.feature.incall_music.enable=true
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -57,10 +44,6 @@ persist.vendor.camera.display.lmax=1280x720 \
 persist.vendor.camera.display.umax=1920x1080 \
 persist.vendor.qti.telephony.vt_cam_interface=2 \
 vidc.enc.dcvs.extra-buff-count=2
-
-# Charger
-PRODUCT_PRODUCT_PROPERTIES += \
-ro.charger.enable_suspend=true
 
 # Cne
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -115,6 +98,11 @@ drm.service.enabled=true
 PRODUCT_PROPERTY_OVERRIDES += \
 persist.qfp=false
 
+# Core_ctrl
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.qti.core_ctl_min_cpu=2 \
+    ro.vendor.qti.core_ctl_max_cpu=4
+
 # Fm
 PRODUCT_PROPERTY_OVERRIDES += \
 ro.fm.transmitter=false
@@ -147,12 +135,6 @@ vendor.vidc.enc.disable.pq=true \
 vendor.vidc.enc.disable_bframes=1 \
 vendor.video.disable.ubwc=1
 
-# Memory optimizations
-PRODUCT_PROPERTY_OVERRIDES += \
-ro.vendor.qti.sys.fw.bservice_enable=true \
-ro.vendor.qti.sys.fw.bservice_age=5000 \
-ro.vendor.qti.sys.fw.bservice_limit=5 \
-ro.vendor.qti.am.reschedule_service=true
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -179,8 +161,9 @@ persist.rild.nitz_short_ons_3=""
 
 # Qualcomm
 PRODUCT_PROPERTY_OVERRIDES += \
-ro.vendor.qti.va_aosp.support=1 \
-ro.vendor.qti.va_odm.support=1
+    com.qc.hardware=true \
+    debug.qc.hardware=true \
+    persist.timed.enable=true
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -245,3 +228,16 @@ wifi.interface=wlan0
 # USAP
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 persist.device_config.runtime_native.usap_pool_enabled=true
+
+
+# Tweak the memory management of the device, enable more background apps.. etc..
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.fha_enable=true \
+    ro.sys.fw.bg_apps_limit=32 \
+    ro.config.dha_cached_max=16 \
+    ro.config.dha_empty_max=42 \
+    ro.config.dha_empty_init=32 \
+    ro.config.dha_lmk_scale=0.545 \
+    ro.config.dha_th_rate=2.3 \
+    ro.config.sdha_apps_bg_max=64 \
+    ro.config.sdha_apps_bg_min=8
